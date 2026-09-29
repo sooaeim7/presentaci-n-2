@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiikawa ✨ Presentación Kawaii</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(180deg, #fff0f5 0%, #ffe4ec 50%, #ffd6e7 100%);
+      color: #5c3a4a;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .bg-deco {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255,182,193,0.4) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(255,192,203,0.35) 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(255,228,236,0.5) 0%, transparent 40%);
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1.2rem 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: clamp(2.6rem, 9vw, 4.5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ff6b8a, #ff8fab, #ffb6c1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 4px 8px rgba(255,107,138,0.3));
+    }
+
+    header .subtitle {
+      margin-top: 0.7rem;
+      font-size: clamp(0.95rem, 3vw, 1.15rem);
+      color: #c45c7a;
+      background: white;
+      display: inline-block;
+      padding: 0.45rem 1.4rem;
+      border-radius: 999px;
+      box-shadow: 0 6px 20px rgba(255,107,138,0.2);
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.1rem 3.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      padding: 2rem 1.6rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 12px 40px rgba(255,107,138,0.15);
+      border: 1px solid rgba(255,182,193,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '♡';
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 1.6rem;
+      color: #ffb6c1;
+      opacity: 0.55;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #ff8fab, #ff6b8a);
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 4px 12px rgba(255,107,138,0.35);
+    }
+
+    h2 {
+      font-size: clamp(1.3rem, 4.5vw, 1.55rem);
+      color: #ff6b8a;
+      margin-bottom: 0.9rem;
+    }
+
+    h3 {
+      font-size: clamp(1.1rem, 3.8vw, 1.25rem);
+      color: #e85a7a;
+      margin: 1.4rem 0 0.7rem;
+    }
+
+    p {
+      font-size: clamp(0.98rem, 3.2vw, 1.08rem);
+      line-height: 1.7;
+      margin-bottom: 0.85rem;
+    }
+
+    .img-box {
+      width: 100%;
+      max-width: 280px;
+      margin: 1.4rem auto;
+      border-radius: 22px;
+      border: 3px solid #ffb6c1;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(255,107,138,0.2);
+      background: #ffe4ec;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #c45c7a;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .traits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.9rem;
+      margin: 1.2rem 0;
+    }
+
+    .trait {
+      background: #fff5f8;
+      border-radius: 16px;
+      padding: 1rem 0.9rem;
+      text-align: center;
+      border: 2px dashed #ffb6c1;
+    }
+
+    .trait .emoji {
+      font-size: 1.6rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .trait h4 {
+      font-size: 0.95rem;
+      color: #ff6b8a;
+      margin-bottom: 0.25rem;
+    }
+
+    .trait p {
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .fact {
+      background: #fff5f8;
+      border-radius: 18px;
+      padding: 1.15rem 1rem;
+      text-align: center;
+      border: 2px dashed #ffb6c1;
+    }
+
+    .fact .icon {
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .fact h3 {
+      font-size: 1rem;
+      color: #ff6b8a;
+      margin: 0 0 0.3rem;
+    }
+
+    .fact p {
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .sounds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.2rem 0;
+      justify-content: center;
+    }
+
+    .sound {
+      background: linear-gradient(135deg, #ff8fab, #ff6b8a);
+      color: white;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(255,107,138,0.3);
+    }
+
+    .sound-desc {
+      background: #fff5f8;
+      border-radius: 16px;
+      padding: 1.1rem 1.3rem;
+      margin-top: 1rem;
+      border: 2px solid #ffd0dc;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    li {
+      padding-left: 1.6rem;
+      position: relative;
+      font-size: clamp(0.98rem, 3.2vw, 1.05rem);
+      margin-bottom: 0.85rem;
+      line-height: 1.6;
+    }
+
+    li::before {
+      content: '✿';
+      position: absolute;
+      left: 0;
+      color: #ff8fab;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem 2.5rem;
+      color: #c45c7a;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 2.2rem 1rem 1.4rem;
+      }
+      .card {
+        padding: 1.6rem 1.25rem;
+        border-radius: 22px;
+      }
+      .facts, .traits {
+        grid-template-columns: 1fr 1fr;
+      }
+      .img-box {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-deco"></div>
+
+  <header>
+    <h1>Chiikawa</h1>
+    <p class="subtitle">La criatura más kawaii del universo 💕</p>
+  </header>
+
+  <div class="container">
+
+    <!-- SECCIÓN 1 -->
+    <section class="card">
+      <div class="badge">1</div>
+      <h2>¿Quién es Chiikawa?</h2>
+      
+      <p>
+        Chiikawa es un pequeño ser blanco, redondito y extremadamente adorable creado por la mangaka <strong>Nagano</strong>. 
+        Su nombre combina las palabras “chii” (pequeño) y “kawa” (de kawaii, que significa lindo). 
+        Nadie sabe con exactitud qué animal es… y justo esa misteriosa ternura es parte de su encanto.
+      </p>
+
+      <div class="img-box">
+        <img src="images/chiiwaka.jpg" alt="Chiikawa">
+      </div>
+      <p class="img-caption">El protagoniste más tierno del mundo</p>
+
+      <h3>✨ Su personalidad</h3>
+      <p>
+        Chiikawa es un personaje muy sensible y emocional. Se asusta con facilidad, llora cuando las cosas no salen como esperaba 
+        y a veces siente que el mundo es demasiado grande para él. Sin embargo, también es muy perseverante: 
+        aunque falle varias veces, siempre vuelve a intentarlo. Esa mezcla de vulnerabilidad y valentía es lo que 
+        hace que tantos fans se enamoren de él.
+      </p>
+
+      <div class="traits">
+        <div class="trait">
+          <div class="emoji">🥺</div>
+          <h4>Sensible</h4>
+          <p>Siente todo con mucha intensidad</p>
+        </div>
+        <div class="trait">
+          <div class="emoji">💪</div>
+          <h4>Persistente</h4>
+          <p>No se rinde fácilmente</p>
+        </div>
+        <div class="trait">
+          <div class="emoji">🥰</div>
+          <h4>Dulce</h4>
+          <p>Tiene un corazón enorme</p>
+        </div>
+        <div class="trait">
+          <div class="emoji">😨</div>
+          <h4>Miedoso</h4>
+          <p>Todo le parece un poco aterrador</p>
+        </div>
+      </div>
+
+      <h3>💗 Lo que más le gusta</h3>
+      <ul>
+        <li>Comer comida rica, especialmente si está caliente o es dulce. Cuando come se pone muy feliz.</li>
+        <li>Pasar tiempo con sus dos mejores amigos: Hachiware y Usagi.</li>
+        <li>Descansar después de un día de trabajo (aunque el trabajo sea simple, se cansa mucho).</li>
+        <li>Recibir apoyo y palabras de ánimo cuando se siente inseguro.</li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section class="card">
+      <div class="badge">2</div>
+      <h2>Curiosidades y Aventuras</h2>
+
+      <p>
+        Aunque Chiikawa es pequeño y asustadizo, su vida está llena de pequeñas aventuras cotidianas. 
+        Desde intentar aprobar exámenes hasta salir a “cazar bichos”, cada día es un nuevo desafío 
+        que enfrenta con miedo… pero también con mucho esfuerzo.
+      </p>
+
+      <div class="facts">
+        <div class="fact">
+          <div class="icon">📚</div>
+          <h3>Nació en Twitter</h3>
+          <p>Empezó como simples viñetas en 2020 y se volvió viral muy rápido.</p>
+        </div>
+        <div class="fact">
+          <div class="icon">🛠️</div>
+          <h3>Su trabajo</h3>
+          <p>Se dedica a recoger hierbas. Es un trabajo sencillo, pero para él es agotador.</p>
+        </div>
+        <div class="fact">
+          <div class="icon">📜</div>
+          <h3>El examen</h3>
+          <p>Necesitó tres intentos para aprobar el examen de hierbas de grado 5.</p>
+        </div>
+        <div class="fact">
+          <div class="icon">🏠</div>
+          <h3>Tiene casa</h3>
+          <p>Ganó su propia casita en un sorteo de yogur. ¡Qué suerte tuvo!</p>
+        </div>
+        <div class="fact">
+          <div class="icon">🐰</div>
+          <h3>Sus amigos</h3>
+          <p>Hachiware (optimista) y Usagi (hiperactivo) siempre lo acompañan.</p>
+        </div>
+        <div class="fact">
+          <div class="icon">🎬</div>
+          <h3>Anime</h3>
+          <p>En 2022 estrenó su propia serie animada corta y fue un éxito.</p>
+        </div>
+      </div>
+
+      <div class="img-box" style="margin-top: 1.6rem;">
+        <img src="images/chiikawa2.jpg" alt="Chiikawa con sus amigos">
+      </div>
+      <p class="img-caption">Chiikawa + Hachiware + Usagi = amistad eterna</p>
+
+      <h3>🌟 Sus aventuras más características</h3>
+      <ul>
+        <li>Intentar superar exámenes aunque le den mucho miedo y se ponga a llorar.</li>
+        <li>Salir a cazar bichos con sus amigos (aunque casi siempre termina asustado).</li>
+        <li>Descubrir comida deliciosa y compartirla con Hachiware y Usagi.</li>
+        <li>Enfrentarse a situaciones nuevas que lo superan… pero nunca se rinde del todo.</li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section class="card">
+      <div class="badge">3</div>
+      <h2>¿Cómo habla Chiikawa?</h2>
+
+      <p>
+        Una de las cosas más especiales de Chiikawa es su forma de comunicarse. 
+        Casi no usa palabras normales. En su lugar, se expresa con sonidos cortos, 
+        gestos y expresiones faciales. Aun así, todos lo entienden perfectamente.
+      </p>
+
+      <div class="sounds">
+        <span class="sound">yaha</span>
+        <span class="sound">uwaa</span>
+        <span class="sound">iya</span>
+        <span class="sound">yada</span>
+        <span class="sound">uu…</span>
+        <span class="sound">¡eh!</span>
+      </div>
+
+      <div class="sound-desc">
+        <strong>Significado de sus sonidos más comunes:</strong><br><br>
+        • <strong>“Yaha”</strong> — Lo usa cuando está contento, sorprendido o un poco emocionado.<br>
+        • <strong>“Uwaa”</strong> — Aparece cuando se asusta o cuando algo le impacta mucho.<br>
+        • <strong>“Iya” / “Yada”</strong> — Es su forma de decir “no” o “no quiero”.<br>
+        • <strong>“Uu…”</strong> — Lo dice cuando está triste, cansado o a punto de llorar.
+      </div>
+
+      <div class="img-box" style="margin-top: 1.6rem;">
+        <img src="images/chiikawa3.jpg" alt="Chiikawa expresivo">
+      </div>
+      <p class="img-caption">Aunque hable poco, se entiende todo lo que siente</p>
+
+      <h3>💌 Lo más bonito de su forma de hablar</h3>
+      <p>
+        Chiikawa nos recuerda que no siempre hacen falta muchas palabras para expresar lo que sentimos. 
+        Con solo un “uwaa”, un “yaha” o una carita triste, sus amigos (y nosotros) ya sabemos 
+        exactamente cómo se encuentra. Esa es una de las razones por las que resulta tan entrañable.
+      </p>
+    </section>
+
+  </div>
+
+  <footer>
+    🌸 Hecho con mucho amor kawaii para los fans de Chiikawa 🌸
+  </footer>
+
+</body>
+</html>
